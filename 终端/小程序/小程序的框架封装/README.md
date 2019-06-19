@@ -83,7 +83,9 @@
    # 授权流程
    
      初学者对于小程序的授权登录流程很是不解(毕竟这是PC端，APP端没有的)。在此我还是说一下小程序的授权流程吧。
-     ![image](https://github.com/yunliuyan/front-end-engineer/blob/master/image/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88.png)
+     
+     
+  ![image](https://github.com/yunliuyan/front-end-engineer/blob/master/image/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88.png)
      
      
     
