@@ -1,0 +1,2 @@
+<!--pages/Auth/index.wxml-->
+<button class="auth-btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">确 定</button>
