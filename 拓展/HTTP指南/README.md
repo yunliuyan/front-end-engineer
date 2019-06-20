@@ -88,7 +88,7 @@ URL是Internet上用来描述信息资源的字符串，主要用在各种www客
 
 ![image](https://upload-images.jianshu.io/upload_images/2964446-fdfb1a8fce8de946.png?imageMogr2/auto-orient/strip%7CimageView2/2)
 
-GET请求列子：
+GET请求例子：
 
       GET /562f25980001b1b106000338.jpg HTTP/1.1
       Host    img.mukewang.com
@@ -97,7 +97,33 @@ GET请求列子：
       Referer    http://www.imooc.com/
       Accept-Encoding    gzip, deflate, sdch
       Accept-Language    zh-CN,zh;q=0.8
+      
+      第一部分: 请求行，用来说明请求类型，要访问的资源以及所使用的的HTTP的版本      
+               GET: 请求类型为GET；[/562f25980001b1b106000338.jpg]：要访问的资源；HTTP/1.1：HTTP版本为1.1
+               
+      第二部分：请求头部，紧接着请求行(第一行)之后的部分，用来说明服务器使用的附加信息
+               从第二行开始即为请求头部。HOST将指出请求的目的地。
+               User-Agent:服务器端和客户端脚本都能访问它,它是浏览器类型检测逻辑的重要基础.该信息由你的浏览器来定义,并且在每个请求中自动发送等等
+               
+      第三部分: 空行，请求头部后面的空行是必须的(及时第四部分请求数据为空，也必须要有空行)
+      
+      第四部分：请求数据(也叫主体),可以调价任意数据。(该例子请求数据为空)
+      
+   POST请求例子
+      
+      POST / HTTP1.1
+      Host:www.wrox.com
+      User-Agent:Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)
+      Content-Type:application/x-www-form-urlencoded
+      Content-Length:40
+      Connection: Keep-Alive
 
+      name=Professional%20Ajax&publisher=Wiley
+      
+      第一部分：请求行，第一行明了是post请求，以及http1.1版本。
+      第二部分：请求头部，第二行至第六行。
+      第三部分：空行，第七行的空行。
+      第四部分：请求数据，第八行。
 
 
 
