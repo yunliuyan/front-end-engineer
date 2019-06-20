@@ -80,5 +80,28 @@ URL是Internet上用来描述信息资源的字符串，主要用在各种www客
 
 3：主机资源的具体地址(如目录和文件名等)
 
+# Request请求信息
+
+客户端发送一个HTTP请求到服务器的请求消息包括以下格式
+
+请求行(reuqest line), 请求头部(header)，空行和请求数据四个部分组成。
+
+![image](https://upload-images.jianshu.io/upload_images/2964446-fdfb1a8fce8de946.png?imageMogr2/auto-orient/strip%7CimageView2/2)
+
+GET请求列子：
+
+      GET /562f25980001b1b106000338.jpg HTTP/1.1
+      Host    img.mukewang.com
+      User-Agent    Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36
+      Accept    image/webp,image/*,*/*;q=0.8
+      Referer    http://www.imooc.com/
+      Accept-Encoding    gzip, deflate, sdch
+      Accept-Language    zh-CN,zh;q=0.8
+
+
+
+
+
+
 
 
