@@ -234,7 +234,10 @@ GET请求例子：
   # TCP和UDP的区别
   
    TCP：TCP协议是双全工的，即发送数据和接受数据都是同步进行的。就好像打电话一样，说话的同时也能听见。TCP协议在建立和断开连接时有三次握手和四次挥手，因此在传输过程中更加稳定可靠，但正因为如此，TCP就没有UDP那么高效率了。以下是三次挥手和四次握手的过程：
+   ![image](https://github.com/yunliuyan/front-end-engineer/blob/master/image/tcp.jpg)
    
+   UDP: UDP协议是面向无连接的，即正式传递数据之前不需要先建立连接，UDP协议不保证有序且不丢失传递到对端，换句话说UDP不够稳定，但正因为如此，UDP协议
+   比TCP更加高效和轻便。
       
    
          
