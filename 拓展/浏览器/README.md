@@ -138,7 +138,13 @@
       
       之前是webkit，4.4系统浏览器切换到了chromium，内核是webkit的分支Blink，windows Phone8系统浏览器内核是Trident
       
-    
+ # 渲染引擎
+ 
+   浏览器渲染引擎及依赖模块
+   
+   ![image](https://user-gold-cdn.xitu.io/2018/4/4/1628f1a408ef0436?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+      
+       
       
  
     
