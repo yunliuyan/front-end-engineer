@@ -162,7 +162,7 @@
       
    DOM树绘制上下文
    
-   ![image](https://user-gold-cdn.xitu.io/2018/4/4/1628f1a494d9db07?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+  ![image](https://user-gold-cdn.xitu.io/2018/4/4/1628f1a494d9db07?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
    
       在网络资源中获得css代码后，则交给css解析器处理，同时也会计算布局。DOM树会构建成一个RnederObject树，它和DOM树节点
       
