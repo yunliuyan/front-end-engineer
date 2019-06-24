@@ -82,11 +82,56 @@
         
       了后者做引擎开发，是因为KHTML拥有清晰的源码结构和极快的渲染速度。
         
-        webkit内核可以说是以硬件盈利为主的苹果公司给软件行业的最大贡献之一。随后，2008年谷歌公司发布了Chrome浏览器，
+      webkit内核可以说是以硬件盈利为主的苹果公司给软件行业的最大贡献之一。随后，2008年谷歌公司发布了Chrome浏览器，
         
-        采用了chromium内核便是fork了webkit
+      采用了chromium内核便是fork了webkit
         
-        
+  Chromium/Bink
+  
+      2008年，谷歌公司发布了Chrome浏览器，浏览器使用的内核被命名为chromium。
+      
+      chromium fork 自开源引擎webkit，却把webkit的代码梳理得可读性很高，以前可能需要一天进行编译的代码，现在只要两个小时就
+      
+      能搞定。因此Chromium引擎和其他基于webkit的引擎所渲染页面的效果也是有出入的。所以有些地方会把chromium引擎和webkit区分
+      
+      开来单独介绍，而有的文章把chromium归入webkit引擎中，都是有一定道理的。
+      
+      谷歌公司还研发了自己的JavaScript引擎，v8，极大的提高了JavaScript的运算速度。
+      
+      chromium问世后，带动了国产浏览器行业的发展。一些基于chromium的单核，双核浏览器如雨后春笋般拔地而起、例如搜狗、360、QQ
+      
+      浏览器等等，无一不是套着不同的外壳用着相同的内核。
+      
+      然而在2013年4月3日，谷歌在chromium Blog上发表博客，称将与苹果的开源浏览器核心webkit分道扬镳，在Choromium项目中研发
+      
+      Blink渲染引擎(即浏览器核心),内置于Chrome浏览器之中。
+      
+      webkit用的好好地，为啥要投入入到一个新的内核中去呢？
+      
+      Blink其实是webkit的分支，如同webkit是KHTML的分支。Google的chromium项目此前一直使用webkit(WebCore)作为渲染引擎，
+      
+      但出于某种原因，并没有将其多进程架构移植入webkit。
+      
+      后来，由于苹果推出webkit2余chromium的沙箱设计存在冲突，所以chromium一直停留在webkit，并使用移植的方式和主线
+      
+      webkit2的对接。这增加了chromium的复杂性，且在一定程度上影响了chromium的架构移植工作。
+      
+      基于以上原因，Google决定从webkit衍生出自己的Blink引擎。(后由Google和Opera software共同研发)，将在webkit代码
+      
+      的基础上研发更加快速简约的渲染引擎，并逐步脱离webkit的影响，创造一个完全独立的Blink引擎，这样一来，唯一一条维系
+      
+      Google和苹果之间的技术的纽带就这样被切断了。
+      
+      Google和苹果在过个领域都是竞争对手，而唯独在浏览器引擎上有技术合作，利益一致。但又为了各自的利益，谁都不会全心全意
+      
+      的去做好webkit，因为你做出来的成果竞争对手可以直接享用。随着移动互联网已经崛起，手机和平板设备端必将成为浏览器的
+      
+      另一个战场。这时若Google和苹果仍然黏在一起，将会严重阻碍双方的进步，也会阻碍webkit的进步，分则利，合则损。
+      
+      据说Blink删除了880w行webkit的代码。
+      
+      
+      
     
       
  
