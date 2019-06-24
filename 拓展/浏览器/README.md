@@ -130,7 +130,13 @@
       
       据说Blink删除了880w行webkit的代码。
       
+  # 关于移动端
+
+      移动端的浏览器内核主要说是系统内置浏览器的内核。
       
+      目前移动设备浏览器常用的内核就是:webkit,blink,trindent,gecko等，其中iPhone和iPad等iOS设备都是webkit，Android4.4
+      
+      之前是webkit，4.4系统浏览器切换到了chromium，内核是webkit的分支Blink，windows Phone8系统浏览器内核是Trident
       
     
       
