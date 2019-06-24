@@ -26,61 +26,61 @@
   
    Trident
    
-      Trident(IE内核)：该内核程序在1997年的IE4中首次被采用，是微软在Mosaic("马赛克"，这是人类历史上第一个浏览器，从此网页
+     Trident(IE内核)：该内核程序在1997年的IE4中首次被采用，是微软在Mosaic("马赛克"，这是人类历史上第一个浏览器，从此网页
       
-      在图形界面的窗口浏览)代码的基础之上修改而来的，并沿用到IE11，也被普遍乘坐“IE内核”。
+     在图形界面的窗口浏览)代码的基础之上修改而来的，并沿用到IE11，也被普遍乘坐“IE内核”。
       
-      Trident实际上是一款开放的内核，其接口内核设计的相当成熟，因此才有许多采用IE内核而非IE的浏览器(壳浏览器)涌现，由于IE
+     Trident实际上是一款开放的内核，其接口内核设计的相当成熟，因此才有许多采用IE内核而非IE的浏览器(壳浏览器)涌现，由于IE
       
-      本身的"垄断性"(虽然名义上IE并非垄断，但实际上，特别是从Windows95年代一直到CP初期，就市场占有率来说IE的确借助Windows
+     本身的"垄断性"(虽然名义上IE并非垄断，但实际上，特别是从Windows95年代一直到CP初期，就市场占有率来说IE的确借助Windows
       
-      的东风处于"垄断"的地位)而使得Trident内核的长期一家独大，微软很长时间并没有更新Trident内核，这导致了两个后果--一是
+     的东风处于"垄断"的地位)而使得Trident内核的长期一家独大，微软很长时间并没有更新Trident内核，这导致了两个后果--一是
       
-      Trident内核曾经几乎与W3C标准脱节(2005年)，二是Trident内核的大量bug等安全性问题没有得到及时解决，然后加上一些致力于
+     Trident内核曾经几乎与W3C标准脱节(2005年)，二是Trident内核的大量bug等安全性问题没有得到及时解决，然后加上一些致力于
       
-      开源的开发者和学者们公开自己认为IE浏览器不安全的观点，也有很多用户专享其他浏览器，Firefox和Opera就是这个时候星期的，
+     开源的开发者和学者们公开自己认为IE浏览器不安全的观点，也有很多用户专享其他浏览器，Firefox和Opera就是这个时候星期的，
       
-      非Reident内核浏览器的市场占有率大幅度提高也导致许多网页开发人员开始注意网页标准和非IE浏览器的浏览效果问题。
+     非Reident内核浏览器的市场占有率大幅度提高也导致许多网页开发人员开始注意网页标准和非IE浏览器的浏览效果问题。
       
-      补充: IE从版本11开始，初步支持WebGL技术。IE8的JavaScript引擎是jsscript,IE9开始用Chakra,这两个版本区别很大，Chakra无论
+     补充: IE从版本11开始，初步支持WebGL技术。IE8的JavaScript引擎是jsscript,IE9开始用Chakra,这两个版本区别很大，Chakra无论
       
-      是速度和标准化方面都很出色。
+     是速度和标准化方面都很出色。
       
-      国内很多的双核浏览器的其中一核便是Trindent，即为"兼容模式"。
+     国内很多的双核浏览器的其中一核便是Trindent，即为"兼容模式"。
       
-      Windows10发布之后，IE将其内置浏览器命名为Edge,Edge最显著的特点就是新内核EdgeHTML。
+     Windows10发布之后，IE将其内置浏览器命名为Edge,Edge最显著的特点就是新内核EdgeHTML。
       
    Gecko
    
-        Gecko(Firefox内核): Netscape6开始采用的内核，后来的Mozilla FireFox(火狐浏览器)也采用了该内核，Gecko的特点就是代码
+      Gecko(Firefox内核): Netscape6开始采用的内核，后来的Mozilla FireFox(火狐浏览器)也采用了该内核，Gecko的特点就是代码
         
-        完全公开，因此这是个开源内核，因此受到许多人的青睐，Gecko内核的浏览器也很多，这也是Gecko内核虽然年轻但市场占有率能够
+      完全公开，因此这是个开源内核，因此受到许多人的青睐，Gecko内核的浏览器也很多，这也是Gecko内核虽然年轻但市场占有率能够
         
-        迅速提高的重要原因。
+      迅速提高的重要原因。
         
-        事实上，Gecko引擎的由来跟IE不无关系，前面说过IE没有使用W3C的标准，这导致了微软内部一些开发人员的不满；他们与当时已经
+      事实上，Gecko引擎的由来跟IE不无关系，前面说过IE没有使用W3C的标准，这导致了微软内部一些开发人员的不满；他们与当时已经
         
-        停止更新了的Netscape的一些员工一起创办了Mozilla,以当时的Mosaic内核为基础重新编写内核，于是开发过了Gecko。不过事实上，
+      停止更新了的Netscape的一些员工一起创办了Mozilla,以当时的Mosaic内核为基础重新编写内核，于是开发过了Gecko。不过事实上，
         
-        Gecko内核的浏览器仍然还是Firefox用户最多，所以有时候也会被称为Firefox内核。此外Gecko也是一个跨平台内核，可以在Windows
+      Gecko内核的浏览器仍然还是Firefox用户最多，所以有时候也会被称为Firefox内核。此外Gecko也是一个跨平台内核，可以在Windows
         
-        、BSD、Linux和Mac OS X中使用。
+      、BSD、Linux和Mac OS X中使用。
         
    Webkit
     
-        一提到Webkit，首先想到的便是Chrome，可以说，Chrome将webkit内核做的深入人心，殊不知，webkit的鼻祖其实是Safari。现在很多人
+      一提到Webkit，首先想到的便是Chrome，可以说，Chrome将webkit内核做的深入人心，殊不知，webkit的鼻祖其实是Safari。现在很多人
         
-        错误的把webkit叫做Chrome内核(即使Chrome内核已经是blink了)，苹果表示已经哭的留血泪了。
+      错误的把webkit叫做Chrome内核(即使Chrome内核已经是blink了)，苹果表示已经哭的留血泪了。
         
-        Safari是苹果公司开发的浏览器，使用KDE(Linux桌面系统)的KHTML作为浏览器的内核，Safari所用浏览器内核的名称是大名鼎鼎的webkit。
+      Safari是苹果公司开发的浏览器，使用KDE(Linux桌面系统)的KHTML作为浏览器的内核，Safari所用浏览器内核的名称是大名鼎鼎的webkit。
         
-        Safari在2003年1月7号首度发行测试版，并成为MAC OS X v10.3与之后版本的默认浏览器，也成为苹果其他系列产品的指定浏览器(也
+      Safari在2003年1月7号首度发行测试版，并成为MAC OS X v10.3与之后版本的默认浏览器，也成为苹果其他系列产品的指定浏览器(也
         
-        已支持Windows平台)。
+      已支持Windows平台)。
         
-        如上述可知，webkit前身是KDE小组的KHTML引擎，可以说webkit是KHTML的一个开源的分支。当年苹果在比较了Gecko和KHTML后，选择
+      如上述可知，webkit前身是KDE小组的KHTML引擎，可以说webkit是KHTML的一个开源的分支。当年苹果在比较了Gecko和KHTML后，选择
         
-        了后者做引擎开发，是因为KHTML拥有清晰的源码结构和极快的渲染速度。
+      了后者做引擎开发，是因为KHTML拥有清晰的源码结构和极快的渲染速度。
         
         webkit内核可以说是以硬件盈利为主的苹果公司给软件行业的最大贡献之一。随后，2008年谷歌公司发布了Chrome浏览器，
         
