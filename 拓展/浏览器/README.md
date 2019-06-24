@@ -143,6 +143,30 @@
    浏览器渲染引擎及依赖模块
    
    ![image](https://user-gold-cdn.xitu.io/2018/4/4/1628f1a408ef0436?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+   
+     一个渲染引擎主要包括HTML解释器、css解释器、布局和JavaScript引擎等，但JavaScript引擎现在都已经独立出来了。底部是所
+     
+     依赖的模块，包括网络、储存、2D/3D图形、音频和视频，图片解码器等等，再下面就是操作系统相关的支持。
+     
+   一个大致渲染过程及依赖模块关系图如下:
+   
+   ![image](https://user-gold-cdn.xitu.io/2018/4/4/1628f1a408fb77c3?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+   
+   webkit渲染的详细过程
+   
+   ![image](https://user-gold-cdn.xitu.io/2018/4/4/1628f1a4744e0375?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+   
+      在浏览器输入URL以后，依赖网络模块加载各种资源，得到一个HTML，HTML交给HTML解析器进行解析，最后生成DOM树，如果再解析
+      
+      过程中邮存在JavaScript代码就交给JavaScript引擎处理，处理完成后返回DOM树。在此环节中其目的就是要构建一个DOM树
+      
+   DOM树绘制上下文
+   
+   ![image](https://user-gold-cdn.xitu.io/2018/4/4/1628f1a494d9db07?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+   
+      在网络资源中获得css代码后，则交给css解析器处理，同时也会计算布局。DOM树会构建成一个RnederObject树，它和DOM树节点
+      
+      一一对应，然后再和解析后的css合并分析，生成renderLayer树，这个树即最终用于渲染的树，然后绘制上下文
       
        
       
