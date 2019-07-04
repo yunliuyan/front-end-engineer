@@ -29,3 +29,33 @@
         Dart2js: 将Dart代码编译为JavaScript的工具。
         
         DartEditor: 基于eclipse的全功能IDE，并包含以上所有工具。支持代码补全，代码导航，快速修正，重构，调试等功能。
+        
+ # 保留关键字
+  
+      abstract do import super as dynamic in switch assert else interface sync* enum implements is this async* export
+      
+      library throw await external mixin true break extends new try case factory null typedef catch false operator var
+      
+      class final part void const finally rethrow while continue for return with covariant get set yield* default if static
+      
+      deferred
+      
+ # 变量和常量
+ 
+    1: 变量声明与初始化
+      
+       a:调用的变量name包含对string值为“张三”的对象的引用，name推断变量的类型是string，但可以通过制定它来更改该类型。
+       
+        如果对象不限于单一类型(没有明确的类型)，请使用object或dynamic关键字
+        
+              //没有明确类型，编译的时候根绝值来明确类型
+              
+              var name = '云流烟';
+              
+              Object name = '蝉嘶雪';
+              
+              dynamic name = '李四';
+              
+              //显示声明将被推断类型，可以使用string显示声明字符串类型
+              
+              String name = '云流烟'
