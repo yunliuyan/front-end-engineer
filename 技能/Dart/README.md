@@ -42,7 +42,7 @@
       
  # 变量和常量
  
-    1: 变量声明与初始化
+   1: 变量声明与初始化
       
        a:调用的变量name包含对string值为“张三”的对象的引用，name推断变量的类型是string，但可以通过制定它来更改该类型。
        
@@ -400,6 +400,14 @@
         throw new  unimplementedError();
         
  2: catch
+ 
+  将可能出现异常的代码放置try语句中个，可以通过on语句来指定需要捕获的异常类型，使用catch来处理异常。
+  
+      try {
+        breedMoreLlamas();
+      } on OutOfLlamasException {
+      
+      }
  
     
   
