@@ -289,7 +289,7 @@
      Map companys = { 'Alibaba': '阿里巴巴','Tencent': '腾讯' }
      print(companys) //{ 'Alibaba': '阿里巴巴','Tencent': '腾讯' }
      
-   创建Map方式二: 先声明，再去赋值。
+  3:创建Map方式二: 先声明，再去赋值。
    
     Map schoolsMap = new Map();
     schoolsMap['first'] = '江西师范大学';
@@ -298,6 +298,111 @@
     var fruits = new Map();
     fruits["first"] = "apple";
     fruits["second"] = "banana";
+    
+  4:Map API
+  
+    //指定键值对的参数类型
+    var aMap = new Map<int, String>();
+    
+    //Map的赋值，中括号中是key,这里可不是数组
+    aMap[1] = '小米';
+    
+    //Map中的键值对是唯一的
+    //同Set不同，第二次输入的key如果存在，value会覆盖之前的数据
+    aMap[1] = '非爱';
+    
+    //map里面的value可以相同
+    aMap[2] = '非爱';
+    
+    //Map里面value值可以为空字符串
+    aMap[3] = '';
+    
+    //Map里面的value可以为null
+    aMap[4] = null;
+    print(aMap); //{'1': '非爱', '2': '非爱', '3': '', '4': null}
+    
+    //检索Map是否含有某key
+    assert(aMap.containsKey(1));
+    
+    //删除某个键值对
+    aMap.remove(1);
+    
+ 注意事项
+ 
+    1：map的key类型不一致也不会报错。
+    
+    2：添加元素的时候，会按照你添加元素的顺序逐个加入到map里面。
+    
+    3：map里面的key不嫩共享同，但value可以相同，value可以为空字符串或者null。
+    
+
+# 运算符
+
+    一元后置操作符： expr++ expr-- () [] . ?
+    
+    一元前置操作符: expr !expr ~expr ++expr --expr
+    
+    乘除: * / % ~/
+    
+    加减: + -
+    
+    位移:  << >>
+    
+    按位与: &
+    
+    按位或: |
+    
+    按位异或: ^
+    
+    逻辑与: &&
+    
+    逻辑或: ||
+    
+    关系和类型判断: >= > <= < as is is!
+    
+    等与不等: == !=
+    
+    如果为空: ??
+    
+    条件表达式:expr1 ? expr2 : expr3
+    
+    赋值： = *= /= ~/= %= += == <<= >>= &= ^= =??=
+    
+  # 流程控制语句
+  
+    if...else
+    
+    for
+    
+    while do-while
+    
+    break continue
+    
+    switch...case
+    
+    assert(仅在checked模式有效)
+    
+# 异常
+
+  1：throw
+    
+   a: 抛出固定类型的异常
+     
+      throw new FormatException('Expected at least 1 section');
+      
+   b: 抛出任意类型的异常
+   
+      throw 'Out of llamas!';
+      
+   c: 抛出异常表达式
+   
+      distanceTo(Point other) => 
+        throw new  unimplementedError();
+        
+ 2: catch
+ 
+    
+  
        
        
        
