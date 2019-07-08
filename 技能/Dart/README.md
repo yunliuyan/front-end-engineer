@@ -406,14 +406,113 @@
       try {
         breedMoreLlamas();
       } on OutOfLlamasException {
+        buyMoreLlamas();  
+      } on Exception catch(e) {
+        print('unknown exception:$e')
+      } catch(e,s) {
+        print('exception details:\n $e  ')
+      }
       
+ 3: rethrow
+ 
+  rethrow 语句用来处理一个异常，同时希望这个异常能够被其它调用的部分使用。
+  
+      final foo = '';
+      
+      void misbehave() {
+        try {
+          foo = '1';
+        } catch(e) {
+          print('2');
+          rethrow; //如果不重新抛出异常，main函数中的catch语句执行不到
+        }
+      }
+      
+      void main() {
+        try {
+          misbehave();
+        } catch (e) {
+          print('3')
+        }
       }
  
-    
+  4：finally
   
+   Dart的finally用来执行那些无论异常是否发生都执行的操作。
+   
+      final foo = '';
+      
+      void misbehave() {
+        try {
+          foo = '1';
+        } catch (e) {
+          print('2')
+        }
+      }
+      
+      void main() {
+        try {
+          misbehave();
+        } catch(e) {
+          print('3')
+        } finally {
+          print('4'); //即使没有rethrow最终都会执行到
+        }
+      }
        
+# 函数function
+  
+   以下是一个实现函数的例子
+    
+    bool isNoble(int atomicaNumber) {
+      return _nobleGases[atomicNumber] != null;
+    }
        
+  1. main()函数 
+  
+     每个应用程序都必须有一个顶层main()函数，它可以作为应用程序的入口点。该main()函数返回void并具有List<String>参数的可选参数。
+  
+         void main() {
+            querySelector('#sample_text_id')
+             ..text = 'Click me!'
+             ..onClick.listen(reverseText);
+         }
+     
+   级联符号..允许你在同一个对象上进行一系列操作。除了函数调用之外，还可以访问同一对象上的字段。这通常会节省创建临时变量的步骤。
+    
+        querySelector('#confirm')  //得到一个对象
+            ..text = 'Confirm' 
+            ..classes.add('important')
+            ..onClick.listen(e=>window.alert('confirmed!'))
+            
+   级联符号也可以嵌套使用。例如: 
+    
+      final addressBook = (AddressBookBuilder()
+       ..name = 'jenny'
+       ..email = 'jenny@example.com'
+       ..phone = (PhoneNumberBuilder()
+             ..number = '415-555-0100'
+             ..label = 'home')
+           .build())
+       .build();
        
+   当返回值是void时不能构建级联
+   
+        var sb = StringBuffer();
+        sb.write('foo') //返回void
+          ..write('bar'); //这里会报错
+       
+2 可选参数
+  
+  可选的命名参数，定义函数时，使用{param1,param2,...}, 用于指定命名参数。例如: 
+  
+      void enableFlags({bool bold, bool hidden}) {
+        //...
+      }
+      
+      enableFlags(bold:true,hidden: false)
+
+    
           
           
         
