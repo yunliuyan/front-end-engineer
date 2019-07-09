@@ -511,9 +511,128 @@
       }
       
       enableFlags(bold:true,hidden: false)
-
+      
+ 可选的位置参数，用[]标记它们可选的位置参数:
+ 
+    String say(String from, String msg,[String device]) {
+      var result = '$from says $msg';
+      if(device != null) {
+        result = '$result with a $device';
+      }
+      return result;
+    }
     
-          
+    say('Bob', 'Howdy'); //结果是：Bob says Howdy
+    
+    say('Bob','Howdy', 'smoke signal'); //结果是: Bob says Howdy with a smoke signal
+    
+3: 默认参数
+
+  函数可以使用=为命名参数和位置参数定义默认值。默认值必须是编译时常量。如果没有提供默认值，则默认值为null。
+  
+    void enableFlags2({bool bold = false, bool hidden = fasle}) {
+      //...
+    }
+    
+    //调用的时候: bold will be true; hidden will be false
+    enableFlags2(bold:true);
+    
+    String say(String from, String msg = 'Howdy', [String device = 'carrier pigeon',String mood]) {
+      var result = '$from says #msg';
+      if(device != null ) {
+        result = '$result with a $device'
+      }
+      if(mood != null) {
+        result = '$result (in a $mood mood)';
+      }
+      return result;
+    }
+    
+    //调用方式:
+    say('Bob','XUSL'); //Bob says XUSL with a carrier pigeon;
+    
+   你还可以将list或map作为默认值传递。下面的实例顶一个函数doStuff(),该函数指定列表参数的默认list和gifts参数的默认map。
+ 
+    void soStuff(
+      {
+        List<int> list = const [1,2,3],
+        Map<String,String> gifts = const {'first': 'paper','second':'cotton'} 
+      }
+    ){
+      print('list: $list');
+      print('gifts: $gifts')
+    }
+
+4 作为一个类对象的功能
+
+  你可以将一个函数作为参数传递给另一个函数。
+  
+    void printElement(int element) {
+      print(element);
+    }
+    var list = [1,2,3];
+    
+    //把printElement函数作为一个参数传递进来
+    list.forEach(printElement)
+   
+  你可以将一个函数分配给一个变量
+  
+    var loudify = (msg) => '!!! ${msg.toUpperCase()} !!!';
+    assert(loudify('hello') == '!!! HELLO !!!');
+    
+5 匿名函数
+
+  a 大多数函数都能被命名为匿名函数，如main()或者printElment()。你还可以创建一个名为匿名函数的无名函数，有时也可以创建lambda或闭包。你可以为变量
+  
+  分配一个匿名函数，例如，从集合中添加或删除它。
+  
+  b 一个匿名函数看起类似于一个命名函数-0或更多的参数，在括号之间用逗号和可选类型标注分离。
+  
+  c 下面的代码块包含函数的主体
+    
+     ([[Type] param1[,...]]) {
+        codeBlock;
+     };
+     
+  d 下面的实例定义了一个具有无类型参数的匿名函数item，该函数被list中的每个item调用，输出一个字符串，该字符串包含指定索引处的值。
+  
+    var list = ['apples','bananas','oranges'];
+    
+    list.forEach((item) => {
+      print('${list.indexOf(item)}:$item');
+    })
+    
+  e 如果函数之包含一条语句，可以使用箭头符号=》来缩短它，比如上面的例子可以简写成:
+  
+  list.forEach((item) => print('$(list.indexoOf(item):$item)'));
+  
+ 6 返回值
+ 
+  所有函数都返回一个值，如果没有指定返回值，则语句return null，隐式的附加到函数体。
+  
+     foo() {};
+     assert(foo() == null)
+     
+# 类(Class)
+
+ 1 对象
+ 
+   a Dart是一种面向对象的语言，并且支持基于mixin的继承方式。
+   
+   b Dart语言中所有的对象都是某一个类的实例，所有的类有同一个基类--Object。
+   
+   c 基于mixin的继承方式具体是指:一个类可以继承自多个父类。
+   
+   d 使用new语句来构造一个类，构造函数的名字可能是ClassName,也可以是ClasName.identigire,例如:
+   
+      var jsonData = JSON.decode('{"x":1,"y": 2 }');
+      
+      //创建一个pint实例可以用point()
+      var p1 = new Piont(2,2);
+      
+      //Create a Point using Point.fromJson().
+      var p2 = new Piont.fromJson(jsonData)
+      
           
         
         
