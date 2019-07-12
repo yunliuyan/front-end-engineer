@@ -633,9 +633,106 @@
       //Create a Point using Point.fromJson().
       var p2 = new Piont.fromJson(jsonData)
       
+   e 使用.（dot）来调用实例的变量或方法
+   
+      var p = new Point(2,2);
+      p.y = 3;
+      assert(p.y == 3);
+      
+      num distance = p.distanceTo(new Point(4,4));
+      
+  d 使用?.来确认前操作数不为空，常用来代替.，避免左边操作数为null引发异常。
+  
+      p?.y = 4; //如果p不是null,那么y的值为4
+      
+  e 使用const代替new来创建编译时的常量构造函数
+  
+      var p = const ImmutablePoint(2,2);
+      
+  f 使用runtimeType方法，在运行中获取对象的类型。该方法将返回Type类型的变量。
+  
+      print('The type of a is ${a.runtimeType}');
+      
+2 实例化变量
+    
+  a 在类定义中，所有没有初始化的变量都会被初始化为null。
+  
+      class Point {
+        num x;
+        num y;
+        num z = 0;
+      }
           
+  b 类定义中所有的变量，Dart语言都会隐式的定义setter方法，针对非空的变量会额外增加getter方法。
+  
+    class Point {
+      num x;
+      num y;
+    }
+    
+    main() {
+      var point = new Point();
+      point.x = 4;
+      assert(point.x == 4);
+      assert(point.y == null);
+    }
         
+ 3 构造函数
+ 
+   a 声明一个和类名相同的好书，来作为类的构造函数。
+    
+      class Point {
+        num x;
+        num y;
         
+        Point(num x, num y) {
+          this.x = x;
+          this.y = y;
+        }
+      }
+      
+   b this关键字只想当前类的实例，上面的代码可以简化为:
+   
+      class Point {
+        num x;
+        num y;
+        
+        Point(this.x,this.y);
+      }
+      
+4 构造函数不能继承
+
+    Dart语言中，子类不会继承父类的命名构造函数。如果不显式提供子类的构造函数，系统就提供默认的构造函数。
+    
+5 命名构造函数
+
+   a 使用命名构造函数从另一类或现有的数据中快速实现构造函数
+   
+      class Point {
+        num x;
+        num y;
+        
+        Point(this.x,this.y);
+        
+        //命名构造函数
+        Point.fromJson(Map json) {
+          x = json['x'];
+          y = json['y'];
+        }
+      }
+        
+  b 构造函数不能被继承，父类中的命名构造函数不能被子类继承。如果想要子类也拥有一个父类一样名字的构造函数，必须在子类是实现这个构造函数。
+  
+6 调用父类的非默认构造函数
+
+ a 默认情况下，子类只能调用父类的无名，无参数的构造函数；父类的无名构造函数会在子类的构造函数前调用；如果initialize list也同时定义了，
+ 
+   则会先执行initialize list中的内容，然后再执行父类的无名无参数构造函数，最后调用子类自己的无名无参数构造函数。即下面的顺序:
+   
+   1 initialize list(初始化列表)
+   2 spuer class`s no-arg constructor (父类无参数构造函数)
+   3 main class`s no-arg constructor(主类无参数构造函数)
+   
         
         
         
