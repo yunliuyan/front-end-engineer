@@ -2,25 +2,25 @@
   
   # 语言特性
     
-    1：Dart所有的东西都是对象，即使是数组numbers，函数function、null也都是对象，所有的对象都继承自object类。
+   1：Dart所有的东西都是对象，即使是数组numbers，函数function、null也都是对象，所有的对象都继承自object类。
     
-    2：Dart动态类型语言，尽量给变量定义一个类型，会更安全，没有显示定义类型的变量在debug模式下的类型是dynamic(动态的)。
+   2：Dart动态类型语言，尽量给变量定义一个类型，会更安全，没有显示定义类型的变量在debug模式下的类型是dynamic(动态的)。
     
-    3：Dart在running之前解析你的所有代码，指定数据类型和编译时的常量，可以提高运行速度。
+   3：Dart在running之前解析你的所有代码，指定数据类型和编译时的常量，可以提高运行速度。
     
-    4：Dart中的类和接口是统一的，类即接口，你可以继承一个类，也可以实现一个类(接口)，自然也包含了良好的面向对象和并发编程的支持。
+   4：Dart中的类和接口是统一的，类即接口，你可以继承一个类，也可以实现一个类(接口)，自然也包含了良好的面向对象和并发编程的支持。
     
-    5：Dart提供了顶级函数(如:main())
+   5：Dart提供了顶级函数(如:main())
+   
+   6：Dart没有public，private，protected这些关键字，变量名以"_"开头意味着对它的lib是私有的。
     
-    6：Dart没有public，private，protected这些关键字，变量名以"_"开头意味着对它的lib是私有的。
+   7：没有初始化的变量都会被赋予默认值null。
     
-    7：没有初始化的变量都会被赋予默认值null。
+   8：final的值只能被设定一次。const是一个编译时的常量，可以通过const来创建常量值。var c = const[];这里c还是一个变量，只是
     
-    8：final的值只能被设定一次。const是一个编译时的常量，可以通过const来创建常量值。var c = const[];这里c还是一个变量，只是
-    
-      被赋值了一个常量值。   它还是可以赋其他值。实例变量可以final，但不能是const.
+   被赋值了一个常量值。   它还是可以赋其他值。实例变量可以final，但不能是const.
       
-    9: 编程语言并不是孤立存在的，Dart也是这样，它由语言规范、虚拟机、类库和工具等组成:
+   9: 编程语言并不是孤立存在的，Dart也是这样，它由语言规范、虚拟机、类库和工具等组成:
     
         SDK: SDK包含Dart VM、dart2js、Pub、库和工具。
         
@@ -732,6 +732,119 @@
    1 initialize list(初始化列表)
    2 spuer class`s no-arg constructor (父类无参数构造函数)
    3 main class`s no-arg constructor(主类无参数构造函数)
+    
+ b 如果父类不显示提供无名无参数构造函数，在子类必须手动调用父类的一个构造函数。这种情况下，调用父类的构造函数的代码放在子类构造函数名后，
+ 
+  子类构造函数前，中间用:分割。
+  
+      class Person {
+        String firstName;
+        Person.fromJson(Mao data) {
+          print('in Person');
+        }
+      }
+      class Employee extends Person {
+        //父类没有无参数的非命名构造函数，必须手动调用一个构造函数
+        super.fromJson(data);
+        Employee.fromJson(Map data) : super.fromJson(data) {
+          print('in Employee');
+        }
+      }
+      
+      main() {
+        var emp = new Employee.fromJson({});
+        
+        //Prints;
+        // in Person
+        //in Employee
+        if(emp is Person) {
+          //类型检查
+          emp.firstNmae = 'Bob';
+        }
+        (emp as Person).firstName = 'Bob';
+      }
+      
+ 7 初始化列表
+  
+   除了调用父类的构造函数，也可以通过初始化列表在子类的构造函数体前（大括号前）来初始化实例的变量值，使用逗号,分隔，如下
+   
+      class Point {
+        num x;
+        num y;
+        
+        Point(this.x,this.y);
+        
+        //初始化列表在构造函数运行前设置实例变量。
+        Point.fromJson(Map  jsonMap) 
+        : x = jsonMap['x'],
+          y = jsonMap['y'] {
+            print('In Point.fromJson():($x,$y)')
+          }  
+      }
+      
+      //注意:上述代码，初始化程序无法访问this关键字。
+      
+8 静态构造函数
+  
+  a 如果类产生的对象永远不会改变，可以让这些对象成为编译时常量。为此，需要定义一个const构造函数并确保所有的实例变量都是final的。
+  
+      class ImmutablePoint {
+        final num x;
+        final num y;
+        const ImmutablePoint(this.x,this.y);
+        static final ImmutablePoint origin = const ImmutablePoint(0,0)
+      }
+      
+9 重定向构造函数
+
+   有时候构造函数的目的只是重定向到该类的另一个构造函数。重定向构造函数没有函数体，使用冒号:分隔
+    
+      class Point {
+        num x;
+        num y;
+        
+        //主构造函数
+        Point(this.x,this.y) {
+          print('Point($x,$y)');
+        }
+        //重定向构造函数，指向主构造函数，函数体为空
+        Point.alongXAxis(num x) :this(x,0);
+      } 
+      void main() {
+        var p1 = new Point(1,2);
+        var p2 = new Point.alongXAxis(4);
+      }
+      
+ 10 常量构造函数
+ 
+ 如果类的对象不会发生变化，可以构造一个编译时的常量构造函数。定义格式如下:
+ 
+  定义所有的实例变量是final
+  
+  使用const声明构造函数
+  
+      class ImmutablePoiint {
+        final num x;
+        final num y;
+        
+        const ImmuttablePoint(this.x,this.y);
+        static final ImmutablePoint origin = const ImmutablePoint(0,0);
+      }
+      
+ 11 工厂构造函数
+ 
+  当实现一个使用factory关键词修饰的构造函数是，这个构造函数不必创建类的新实例。例如，工厂构造函数可能从缓存返回实例，或者它可能返回子类型的实例。
+  
+  下面的示例演示一个工厂构造函数从缓存返回的对象:
+  
+    class Logger {
+      final String name;
+      bool mute = false;
+      
+      //_cache是一个私有库
+      static final Map<String,Logger> _cache = 
+      
+    }
     
         
         
