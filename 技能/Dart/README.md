@@ -842,10 +842,325 @@
       bool mute = false;
       
       //_cache是一个私有库
-      static final Map<String,Logger> _cache = 
+      static final Map<String,Logger> _cache = <String,Logger>{};
       
+      factory Logger(String name) {
+        if(_cache.containsKey(name)) {
+          return _cache[name];
+        } else {
+          final logger = new Logger._internal(name);
+          _cache[name] = logger;
+          return logger;
+        }
+      }
+      logger._internal(this.name);
+      
+      void log(String msg) {
+        if(!mute) {
+          print(msg)
+        }
+      }
     }
     
+    //工厂构造函数不能用this
+   
+# 方法
+    
+   方法就是为对象提供行为的函数。
+   
+  # 实例方法
+   
+   对象的实例方法可以访问实例变量和this。一下实例中的distanceTo()方法是实例方法的一个例子:
+   
+      import 'sqrt:math';
+      
+      class Point {
+        num x;
+        num y;
+        Point(this.x,this.y);
         
+        num distanceTo(Point other) {
+          var dx = x - other.x;
+          var dy = y - other.y;
+          return sqrt(dx*dx + dy*dy);
+        }
+      }
+  setters 和 gertters
+  
+   这是一种提供对方法属性读和写的特殊方法。每个实例变量都有一个隐式的getter方法，合适的话可能还会有setter方法。可以通过实现getters和setters来创建附加属性，也就是直接使用get和set关键词:
+   
+      class Rectangle {
+        num left;
+        num top;
+        num width;
+        num height;
         
+        Rectangle(this.left,this.top,this.width,this.height);
         
+        //定义两个计算属性: right and bottom 
+        num get right => left + width;
+        set right(num value) => left = value - width;
+        num get bottom => top + height;
+        set bottom(num value) => top = value - height;
+      }
+      
+      main() {
+        var rect = new Rectangle(3,4,20,15);
+        assert(rect.left == 3);
+        rect.right = 23;
+      }
+      
+      //不论是否显示的定义了一个getter，类似增量(++)的操作符，都能以预期的方式工作。为了避免产生任何向着不期望的方向操作，操作符一旦调用getter，就         会把他的值存在临时变量里。
+      
+      //借助于getter和setter，可以直接使用实例变量，并且在不改变客户代码量的情况下把它们包装秤方法。
+      
+  # 抽象方法
+  
+  instance,getter 和setter方法可以是抽象的，也就是定义一个接口，但是把实现交给其他类，要创建一个抽象方法，使用分号;代替方法体:
+  
+      abstract class Doer {
+        //...定义实例变量和方法...
+        void doSomething(); //定义一个抽象方法。
+      }
+      
+      class EffectiveDoer extends Doer {
+        void doSomething() {
+          // ...提供一个实现方法，所以这里的方法不是抽象的...
+        }
+      }
+      
+  # 枚举类型
+  
+  枚举类型，通常被称作enumerations或enums,是一种用来代表一个固定数量的常量的特殊类。
+  
+  声明一个枚举类型需要使用关键字enum:
+  
+    enum Color {
+      red,
+      green,
+      blue
+    }
+    
+ 在枚举中每个值都有一个index getter方法。它返回一个在枚举声明中从0开始的位置。例如，第一个值索引值为0，第二个值索引值为1。
+ 
+    assert(Color.red.index == 0);
+    assert(Color.green.index == 1);
+    assert(Color.blue.index == 2);
+    
+要得到枚举列表的所有值，可使用枚举的values常量。
+   
+   List<Color> colors = Color.values;
+   assert(colors[2] == Color.blue);
+  
+    //你可以在switch语句中使用枚举。如果e在switch(e)是雷士类型的枚举，如果不处理所有的枚举都会弹出警告
+    
+    enum Color {
+      red,
+      green,
+      blue,
+    }
+    //...
+    Color aColor = Color.blue;
+    switch(aColor) {
+      case Color.red:
+        print('Red as roses!');
+        break;
+        
+      case Color.green:
+        print('Green as grass!');
+        break;
+        
+      default: 
+        print(aColor);
+    }
+    
+    //枚举类型有一下限制
+      //不能再子类中混合或实现一个枚举
+      //不能显示实例化一个枚举
+      
+
+为类添加特征:mixins
+
+  mixins是一种多类层次结构的类的代码重用。
+  
+  要使用mixin,在with关键字后面跟一个或多个mixin的名字。下面的例子显示了两个使用mixins的类:
+  
+      class Musician extends Performer with Musical {
+      
+          //...
+      }
+      
+      class Maestro extends Person with Musical,
+          Aggressive,Demented {
+            
+              Maestro(String maestroName) {
+                name = maestroName;
+                canConduct = true;
+              }
+          }
+  要实现mixin，就创建一个集成object类的子类，不声明任何构造函数，不调用super。例如:
+  
+      abstract class Musical {
+        bool canPlayPiano = false;
+        bool canCompose = false;
+        bool canConduct = false;
+        
+        void entertainMe() {
+          if(canPlayPiano) {
+            print('Playig Piano');
+          } else if(canConduct) {
+            print('Waving hands')
+          } else {
+            print('Humming to self')
+          }
+        }
+      }
+      
+  # 类的变量和方法
+   
+   使用static关键字来定义变量和类方法。
+   
+   只有当静态变量被使用时才被初始化。
+   
+   静态变量，静态变量(类变量)对于类状态和常数是有用的:
+   
+      class Color {
+        static const red = const Color('red'); //一个恒定的静态变量
+        final String name; //一个实例变量
+        const Color(this.name); //一个恒定的构造函数
+      }
+      
+      main() {
+        assert(Color.red.name == 'red');
+      }
+      
+  静态方法，静态方法(类方法)不在一个实例上进行操作，因而不必访问this。例如:
+  
+      import 'dart:math';
+      
+      class Point {
+        num x;
+        num y;
+        Point(this.x,this.y);
+        
+        static num distanceBetween(Point a,Point b) {
+          var dx = a.x - b.x;
+          var dy = a.y - b.y;
+          return sqrt(dx*dx+dy*dy);
+        }
+      }
+        
+     main() {
+      var a = new Point(2,2);
+      var b = new Point(4,4);
+      
+      var distance = Point.distanceBetween(a,b);
+      assert(distance < 2.9 && distance > 2.8);
+     }
+    //注:考虑使用高阶层的方法而不是静态方法，是为了常用或者广泛使用的工具和功能。
+    
+    //静态方法可以作为编译时常量。例如你可以把静态方法作为一个参数传递给静态构造函数
+   
+ # 抽象类
+ 使用abstract修饰符来定义一个抽象类，该类不能被实例化。抽象类在定义接口的时候非常有用，实际上抽象也包含一个实现。如果你先个让你的抽象类被实例化，请定义一个工厂函数。
+ 
+ 抽象类通常包含抽象方法。下面声明一个含有抽象方法的抽象类的例子:
+ 
+      //这个类是抽象类，因此不能被实例化
+      abstract class AbstractContainer {
+        //定义构造函数，域，或方法
+        void updateChildren(); //抽象方法。
+      }
+      
+ 下面的类不是抽象类，因此它可以被实例化。即使定义了一个抽象方法:
+ 
+ class SpecializedContainer extends AbstractContainer {
+    //定义更多构造函数,域,方法
+    
+    void updateChildren() {
+      // ...实现 updateChildren()...
+    }
+    
+    //抽象方法造成一个警告，但是不会阻止实例化。
+    void doSomething();
+ }
+  
+ # 类-隐式接口
+ 每个类隐式的定义了一个接口，含有类的所有实例和它实现的所有接口。如果想创建一个支持类B的API的类A，但又不想继承类B，那么，类A应该实现类B的接口。
+ 
+ 一个类实现一个或更多接口通过用implements子句声明，然后提供API接口要求。例如:
+ 
+    //一个person，包含greet()的隐式接口。
+    class Person {
+      //在这个接口中，只有库中可见。
+      final _name;
+      
+      //不在接口中，因为这个是构造函数
+      Person(this._name);
+      
+      //在这个接口中
+      string greet(who) => 'Hello,$who. I am $_name.';
+    }
+    
+    //Person 接口的一个实现。
+    
+    class Imposter implements Person {
+      //我们不得不定义，却不使用
+      final _name = "";
+      
+      String greet(who) => 'Hi $who. Do you knoe who I am?';
+    }
+    
+    greetBob(Person person) => person.greet('bob');
+    
+    main() {
+      print(greetBob(new Person('kathy')));
+      print(greetBob(new Imposter()));
+    }
+    
+# 类-扩展一个类
+
+  使用extends创建一个子类，同时supper将指向父类:
+  
+      class Television {
+        void turnOn() {
+          _illuminateDisplay();
+          _activateIrSensor();
+        }
+      }
+      
+      class SmartTelevision  extends Television {
+         void turnOn() {
+             super.turnOn();
+             _bootNetworkInterface();
+             _initializeMemory();
+             _upgradeApps();
+          }
+      }
+     
+子类可以重载实例方法，getters方法,setters方法。下面是个关于重写Object类的方法noSuchMethod()的例子，当代码企图用不存在的方法或实例变量时，这个方法就会被调用。
+
+      class A {
+          void noSuchMethod(Invocation mirror) {
+          // 如果你不重写 noSuchMethod 方法, 就用一个不存在的成员，会导致NoSuchMethodError 错误。
+            print('you tried to use a non-existent member:'+'${mirror.memberName}')
+          }
+      }
+      
+可以使用@override注释表明重写了一个成员
+
+    class A {
+      @overrode
+      void noSuchMethod(Invocation mirror) {
+       // ...
+      }
+    } 
+    
+如果你用noSuchMethod()实现每一个可能getter方法，setter方法和类的方法，MAME可以使用@proxy标注来避免警告。
+
+    @proxy
+    class A {
+      void noSuchMethod(Invocation mirror) {
+        // ...
+      }
+    }
