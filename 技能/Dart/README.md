@@ -1164,3 +1164,34 @@
         // ...
       }
     }
+    
+    
+# 库和可见性
+
+  1 import，part，library指令可以帮助创建一个模块化的，可共享的代码库。库不仅提供了API,还提供隐私单元:以下划线_ 开头的标识符值对内部库可见。每个Dartapp就是一个库，即使它不使用库指令。
+  
+  2 库可以分布式使用包，见 Pub Package and Asset Manager 中有关pub(SDK中的一个包管理器）。
+  
+  3 使用库
+  
+   使用import来指定如何从一个库命名空间用于其他库的范围。
+   
+   例如，Dart Web应用一般采用这个库dart:html,可以这样导入:
+   
+      import 'dart:html';
+      
+   唯一需要import的参数是指向库的URI。对于内置库，URI中具有特殊的dart：scheme。对于其他库，你可以使用文件系统枯井或package:scheme.包package:scheme specifies libraries,如pub工具提供的软件包管理器库。例如:
+   
+      import 'dart:io';
+      import 'package:mylib/mylib.dart';
+      import 'package:utils/utils.dart';
+      
+   4 指定库前缀
+   
+   如果导入两个库是有冲突的标识符，那么你可以指定一个或两个库的前缀。例如，如果library1和library2都有一个元素类，那么你可能有这样的代码:
+   
+      import 'package:lib1/lib1.dart';
+      import 'package: lib2/lib2.dart' as lib2;
+      
+      var ele1 = new Element(); //使用lib1的元素
+      var ele2 = new 
