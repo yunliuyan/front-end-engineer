@@ -1208,4 +1208,154 @@
       
       import 'package: lib2/lib2.dart' //hide foo
       
- 6 延迟加载一个库，你必须使用deffred as 导入它。
+ 6 延迟加载库
+ 
+  延迟加载允许应用程序按需加载库。下面是可能用到延迟加载的情况
+   
+   为了减少应用程序的初始启动时间；
+   
+   执行A/B测试-尝试的算法的替代实施方式中；
+
+   加载很少使用的功能，例如可选的屏幕和对话框
+   
+  为了延迟加载一个库，可以使用deferred as 导入
+  
+      import 'package:defferd/hello.dart' deffered as hello
+      
+  当需要库时，使用该库的调用标识符调用LoadLibrary()。
+  
+      greet() async {
+        await hello.loadLibrary();
+        hello.printGreeting();
+      }
+   
+  在前面的代码，在库加载好之前，await关键字都是暂停执行的。有关async和await见asynchrony support的更多信息。
+  
+  一个库可以调用多次LoadLibrary(),该库也只是加载一次。
+  
+  在使用延迟加载时，请谨记:
+      
+      1：延迟库的常量在其作为导入文件时不是常量。记住，这些常量是不存在的，知道延迟库被加载完成。
+      
+      2：不能再导入文件使用延迟库常量的类型。相反，考虑将接口类型移到同事有延迟库和导入文件导入的库。
+      
+      3：Dart隐含调用LoadLibrary()插入到定义deferred as namespace。在调用LoadLibrary()函数返回一个future。
+      
+7 库的实现
+
+   用library来命名库，用part来着hiding库中的其他文件。注意: 不必再应用程序中(具有main函数的文件)使用library。
+   
+8 声明库
+
+   利用 library identifier(库标识符)指定当前库的名称:
+   
+        //声明库，名ballgame
+        
+        library ballgame;
+        
+        //导入HTML库
+        
+        import 'dart:html';
+        
+        //....start code...
+        
+ 9 关联文件与库
+ 
+   添加实现文件，把part fileUrl放在有库的文件，其中fileUrl是实现文件的路径。然后再实现文件中，添加部分标识符，其中标识符是库的名称。下面的实例使用的一部分，在三个文件来实现部分库。
+   
+   第一个文件，ballgame.dart,声明球赛库，带入其他需要的库，并制定ball.dart和util.dart是此库的部分：
+   
+      library ballgame;
+      
+      import 'dart:html';
+      //..其他的导入写在这里..
+      
+      part 'ball.dart';
+      part 'util.dart';
+      
+      //...start code...
+      
+ 第二个文件ball.dart，实现了球赛库的一部分:
+    
+      part of ballgame;
+      
+      //..代码从这里开始..
+    
+  第三个文件，util.dart,实现了球赛库的其余部分: 
+  
+      part of ballgame;
+      
+      //..start code..
+      
+ 10 重新稻出库
+ 
+  可以通过重新导出部分库或者全部库来组合或重新打包库。例如：一组较小的库集成一个较大库。或者创建一个库，提供了获取另一个库的方法的子集。
+  
+      // In french.dart:
+      library french;
+      
+      hello() => print('Bonjour!');
+      goodbye() => print('Au Revoir');
+      
+      //In togo.dart
+      lbirary togo;
+      
+      import 'french.dart';
+      export 'french.dart' show hello;
+      
+      //In another .dart file
+      import 'togo.dart';
+      
+      void main() {
+        hello(); //bonjour
+        goodbye(); //报错
+       }
+        
+# 异步的支持
+
+  1 Dart添加了一些新的语言特性用于支持异步编程。最通常使用async方法和await表达式。Dart库大多方法返回future和stream对象。这些方法是异步的:他们在设置一个可能耗时操作(如I/O操作)之后返回，而无需等待操作完成
+  
+  2 当你需要使用future来表示一个值时，有两种选择：
+  
+      使用async和await
+      
+      使用Future API
+      
+  3 同样，当你从stream获取值时，两个选择:
+  
+      使用async和一个异步的for循环(await for)
+      
+      使用Stream API
+      
+  4 使用async和awai的代码是异步的，不过它看起来很像同步的代码。比如:
+  
+      await lookUpVersion()
+    
+  5 要使用await，代码必须用await标记
+  
+      checkVersion() async {
+        var version = awiat lookUpVersion();
+        if(version == expectedVersion) {
+            //do something
+        } else {
+            // do something else.
+        } 
+      }
+ 6 使用try，catch和finally来处理错误并精简使用await代码
+ 
+    try {
+      server = awaite HttpServer.bind(InternetAddress.LOOPBACK_IP_V4, 4044);
+    } catch(e) {
+        //捕捉错误
+    }
+      
+ 7 声明异步函数
+ 
+  一个异步函数是一个有async修饰符标记的函数。虽然一个异步函数可能在操作上比较耗时，但是它可以立即返回在任何方法体执行之前。
+  
+      checkVersion() async {
+        //...
+      }
+      lookUpVersion async => //...
+      
+   
