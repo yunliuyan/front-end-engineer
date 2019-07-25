@@ -1194,4 +1194,18 @@
       import 'package: lib2/lib2.dart' as lib2;
       
       var ele1 = new Element(); //使用lib1的元素
-      var ele2 = new 
+      var ele2 = new lib2.Element(); //使用lib2里的元素
+      
+ 5 导入部分库
+  
+   如果想使用库的一部分，你可以选择性导入库。例如:
+   
+      //只导入foo库
+      
+      import 'package: lib1/lib1.dart'  //show foo
+      
+      //导入所有除了foo
+      
+      import 'package: lib2/lib2.dart' //hide foo
+      
+ 6 延迟加载一个库，你必须使用deffred as 导入它。
