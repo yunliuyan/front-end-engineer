@@ -88,11 +88,25 @@
   
  # Android设置 
  
- 最开始我以为只要安装flutter SDK就可以了，当我装成功了flutter SDK，就兴冲冲的去建立了flutter的项目(后面会讲述如何建立)。建立好了，运行，然后又像傻狍子一样等，啥都没有。后来输入flutter doctor,才发现我的Android SDK没装。后来又去看文档，发现要设置Android。又只能跑去搞Android设置了。搜索了好多文档资料，国内也有Android SDK，还有Android Studio。但对于一个小白来讲，这个都不知道是个啥东西，只能下载安装咯，安装之后发现没用啊，就只能继续去翻墙，去Android Studio下载。下载地址(要翻墙): https://developer.android.com/studio/index.html
+ 最开始我以为只要安装flutter SDK就可以了，当我装成功了flutter SDK，就兴冲冲的去建立了flutter的项目(后面会讲述如何建立)。建立好了，运行，然后又像傻狍子一样等，啥都没有。后来输入flutter doctor,才发现我的Android SDK没装。后来又去看文档，发现要设置Android。又只能跑去搞Android设置了。搜索了好多文档资料，国内也有Android SDK，还有Android Studio。但对于一个小白来讲，这个都不知道是个啥东西，只能下载安装咯，安装之后发现没用啊，就只能继续去翻墙，去Android Studio下载。下载地址(如果访问不了就要翻墙): https://developer.android.com/studio/index.html
  
  下载完了之后便去安装(根据网上如何去安装Android Studio)安装了一下，其实我并不想去这个软件去开发flutter的，因为习惯了vscode了，安装这个只是为了获取里面的SDK罢了。哈哈哈，安装这个真是拔呀拔萝卜，拔出来才知道这个坑真是深不可测啊，安装这个又要去配置java的jdk（还好我之前学过java，已经配置好了java的JDK和SDK）。安装好了就去看看里面的Android的SDK吧(如何安装Android Studio诸君只能去网上看吧。)
  
  如果你的Android Studio，就可获得Android SDK了，一般都在C:user/用户名/AppData/Local/Android/Sdk。然后把它添加到用户变量里面(是环境变量里面的用户变量哦)。
+ 
+ ![image](https://github.com/yunliuyan/front-end-engineer/blob/master/image/andoridSdk.jpg)
+ 
+ 总结: 其实我们只需要Android SDK罢了，如果你能单独找到Android SDK那也么得问题，个人感觉不需要安装Android Studio，安装这个是真的烦。后面你再输入flutter doctor时，Android SDK就不会报错了。（记得重启哦）
+ 
+ # 编辑器安装插件(vscode)
+ 
+ 本人习惯用vscode，而且它本身就有可开发flutter的插件，所以咯，安装vscode(步骤网上很多)，然后安装dart和flutter的插件
+ 
+ 在此需要说明的是:flutter是写dart的，我之前学dart也装了dart的SDK，编写flutter的话好像也要安装dart特定的SDK，不过似乎安装flutter的插件会自动配置dart，本人不太确定，这个坑我没踩。如果不幸踩到了，那就只能去装dart的SDK咯，这个也很麻烦，不过网上的教程很多，比装flutter的简单多了。
+ 
+ 总是，在vscode安装了Dart和flutter的插件后，基本差不多了。
+ 
+ 
  
  
   
