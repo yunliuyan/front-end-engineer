@@ -37,7 +37,7 @@
  
 # 使用镜像
 
-  因为某墙的关系，flutter在国内访问会受到限制，于是flutter官方为开发者临时搭建了一个镜像，大家可将环境变量加入到 用户变量 中(是用户变量！)。 
+  因为某墙的关系，flutter在国内访问会受到限制，于是flutter官方为开发者临时搭建了一个镜像，大家可将环境变量加入到 用户变量 中(是用户变量！)。不知道如何配置的可以先去百度搜索一下。 
   
       export PUB_HOSTED_URL=https://pub.flutter-io.cn
       
@@ -65,6 +65,24 @@
    这样你就很容易获知自己的flutter SDK在哪了。
     
   当你把Flutter SDK安装好了，接下来就是配置环境变量了。打开放置Flutter SDK目录夹，有一个bin文件夹，进入进去，复制访问bin文件的文件路径。
+  
+  ![image](https://github.com/yunliuyan/front-end-engineer/blob/master/image/flutterBin.png)
+  
+  然后将bin文件放置环境变量里面(系统变量里面path！！)
+  
+  ![image](https://github.com/yunliuyan/front-end-engineer/blob/master/image/flutterConsole.jpg)
+  
+  环境变量配置好了，开机重启一下，(我当时也配置好了，但是没重启，就卡在那里了~)，重启后，为了确认配置已生效，可在cmd，输入export查看一下。
+  
+  确认好了之后，便打开flutter SDK文件找到flutter-console.bat文件，双击打开。
+  
+  ![image](https://github.com/yunliuyan/front-end-engineer/blob/master/image/flutterpath.jpg)
+  
+  打开之后输入 flutter doctor命令。
+  
+  
+  
+  
     
   
  
