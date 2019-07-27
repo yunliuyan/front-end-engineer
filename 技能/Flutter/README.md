@@ -25,10 +25,12 @@
   
   磁盘空间: 400 MB (不包括Android Studio的磁盘空间)
   
-  工具: Flutter 依赖下面这些命令行工具.
+  工具: Flutter 依赖下面这些命令行工具:
   
     Git for Windows (Git命令行工具)
 
-    如果已安装Git for Windows，请确保命令提示符或PowerShell中运行 git 命令，不然在后面运行flutter doctor时将出现Unable to find git in your PATH     错误, 此时需要手动添加C:\Program Files\Git\bin至Path系统环境变量中
+    如果已安装Git for Windows，请确保命令提示符或PowerShell中运行 git 命令，
+    不然在后面运行flutter doctor时将出现Unable to find git in your PATH错误,
+    此时需要手动添加C:\Program Files\Git\bin至Path系统环境变量中
     
  
