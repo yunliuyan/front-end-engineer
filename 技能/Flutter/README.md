@@ -106,6 +106,15 @@
  
  总是，在vscode安装了Dart和flutter的插件后，基本差不多了。
  
+ ![image](https://github.com/yunliuyan/front-end-engineer/blob/master/image/vscode.jpg)
+ 
+ #  设置模拟器(夜神模拟器)
+ 
+ 编写的flutter是需要平台来看的，毕竟做的是安卓和iOS开发，不能用浏览器咯，要么用自己的手机，要么去下载一个模拟器。我就选择了夜神模拟器作为安卓开发。下载地址:https://www.yeshen.com/
+ 
+ 下载完成之后也需要配置一下环境变量的(如果你不想每次都要跑到目录夹里面运行：nox_adb.exe connect 127.0.0.1:62001)的话，像之前的环境配置一样，找到夜神浏览器的目录夹，把里面的bin文件配置到环境变量中。
+ 
+ 到此，模拟器也装好了，现在就是要把vscode和夜神模拟器连接咯，打开vscode的powershell，在里面输入adb connect 127.0.0.1:62001，然后右下角有设备连接，就说明vscode和夜神模拟器连接成功了。
  
  
  
