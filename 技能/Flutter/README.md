@@ -117,7 +117,36 @@
  到此，模拟器也装好了，现在就是要把vscode和夜神模拟器连接咯，打开vscode的powershell，在里面输入adb connect 127.0.0.1:62001，然后右下角有设备连接，就说明vscode和夜神模拟器连接成功了。
  
  
+ ![image](https://github.com/yunliuyan/front-end-engineer/blob/master/image/yeshen.jpg)
  
+ 
+  如果道友你看到这个界面，那么恭喜你，你所有的配置都成功了。
+  
+  
+  # 创建第一个flutter项目
+ 
+  1：启动 VS Code；
+  
+  2：调用 View>Command Palette…；
+  
+  3：输入 ‘flutter’, 然后选择 ‘Flutter: New Project’ action；
+  
+  4：输入 Project 名称 (如myapp), 然后按回车键；
+  
+  5：指定放置项目的位置，然后按蓝色的确定按钮；
+  
+  6：等待项目创建继续，并显示main.dart文件；
+  
+  7：上述命令创建一个Flutter项目，项目名为myapp，其中包含一个使用Material 组件的简单的演示应用程序；
+  
+  8：在项目目录中，道友的应用程序的代码位于 lib/main.dart；
+  
+  9：确保在VS Code的右下角选择了目标设备；
+  
+  10：按 F5 键或调用Debug>Start Debugging；
+  
+  11：如果一切正常，在应用程序建成功后，您应该在您的设备或模拟器上看到应用程序
+  
   
   
     
