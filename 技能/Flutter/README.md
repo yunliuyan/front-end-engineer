@@ -62,7 +62,7 @@
     
    ![image](https://github.com/yunliuyan/front-end-engineer/blob/master/image/flutterUrl.png)
    
-    这样你就很容易获知自己的flutter SDK在哪了。
+   这样你就很容易获知自己的flutter SDK在哪了。
     
   当你把Flutter SDK安装好了，接下来就是配置环境变量了。打开放置Flutter SDK目录夹，有一个bin文件夹，进入进去，复制访问bin文件的文件路径。
     
