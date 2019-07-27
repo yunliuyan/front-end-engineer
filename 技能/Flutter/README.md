@@ -148,7 +148,7 @@
   11：如果一切正常，在应用程序建成功后，您应该在您的设备或模拟器上看到应用程序
   
   
-  
+   ![image](https://github.com/yunliuyan/front-end-engineer/blob/master/image/hello.jpg)
     
   
  
