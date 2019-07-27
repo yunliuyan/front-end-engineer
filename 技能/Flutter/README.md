@@ -70,13 +70,13 @@
   
   然后将bin文件放置环境变量里面(系统变量里面path！！)
   
-  ![image](https://github.com/yunliuyan/front-end-engineer/blob/master/image/flutterConsole.jpg)
+  ![image](https://github.com/yunliuyan/front-end-engineer/blob/master/image/flutterpath.jpg)
   
   环境变量配置好了，开机重启一下，(我当时也配置好了，但是没重启，就卡在那里了~)，重启后，为了确认配置已生效，可在cmd，输入export查看一下。
   
   确认好了之后，便打开flutter SDK文件找到flutter-console.bat文件，双击打开。
   
-  ![image](https://github.com/yunliuyan/front-end-engineer/blob/master/image/flutterpath.jpg)
+  ![image](https://github.com/yunliuyan/front-end-engineer/blob/master/image/flutterConsole.jpg)
   
   打开之后输入 flutter doctor命令。
   
