@@ -80,7 +80,21 @@
   
   打开之后输入 flutter doctor命令。
   
+  ![image](https://github.com/yunliuyan/front-end-engineer/blob/master/image/flutterDoctor.jpg)
   
+  这是我配置好了出现的显示，如果只安装了上面的步骤跟我显示的不一样的。在这里我踩了个坑，估计有的人也会踩到的：输入flutter doctor之后就不动了。上面也说过，这个原因是，你要加载的文件被那堵墙拦住了，所以加载不了，而配置的镜像没啥用，我没有去找新的镜像源，就翻墙了。然后就加载了相对应的文件了。
+  
+  到了这里，如果你输入flutter doctor有下拉数据就算是前面的流程都成功了，里面的报错先别在意。
+  
+ # Android设置 
+ 
+ 最开始我以为只要安装flutter SDK就可以了，当我装成功了flutter SDK，就兴冲冲的去建立了flutter的项目(后面会讲述如何建立)。建立好了，运行，然后又像傻狍子一样等，啥都没有。后来输入flutter doctor,才发现我的Android SDK没装。后来又去看文档，发现要设置Android。又只能跑去搞Android设置了。搜索了好多文档资料，国内也有Android SDK，还有Android Studio。但对于一个小白来讲，这个都不知道是个啥东西，只能下载安装咯，安装之后发现没用啊，就只能继续去翻墙，去Android Studio下载。下载地址(要翻墙): https://developer.android.com/studio/index.html
+ 
+ 下载完了之后便去安装(根据网上如何去安装Android Studio)安装了一下，其实我并不想去这个软件去开发flutter的，因为习惯了vscode了，安装这个只是为了获取里面的SDK罢了。哈哈哈，安装这个真是拔呀拔萝卜，拔出来才知道这个坑真是深不可测啊，安装这个又要去配置java的jdk（还好我之前学过java，已经配置好了java的JDK和SDK）。安装好了就去看看里面的Android的SDK吧(如何安装Android Studio诸君只能去网上看吧。)
+ 
+ 如果你的Android Studio，就可获得Android SDK了，一般都在C:user/用户名/AppData/Local/Android/Sdk。然后把它添加到用户变量里面(是环境变量里面的用户变量哦)。
+ 
+ 
   
   
     
