@@ -55,9 +55,11 @@
   
     1：直接去官网下载：https://flutter.dev/docs/development/tools/sdk/releases#windows
   
-    2: 使用git去GitHub下载：https://github.com/flutter/flutter/releases (安装git的文档网上很多，坑少，我就不写如何安装了)
+    2: 使用git去GitHub下载：https://github.com/flutter/flutter/releases (安装git的文档网上很多，我就不写如何安装了)
   
     // 在此建议，获取Flutter的SDK后，在D盘创建一个文件夹存放。换句话说你本人一定要知道你下载的文件放在哪。
+    
+    
     
   
  
