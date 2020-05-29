@@ -5,11 +5,13 @@ import './menu.css'
 const { SubMenu } = Menu
 
 function Meun(props) {
-  const menuContent = props.menuContent
+	const menuContent = props.menuContent
+	const defaultKey = props.defaultKey || menuContent[0].router
   return (
     <Menu
-			style={{ width: 256, height: `100%` }}
-			defaultSelectedKeys={['1']}
+			style={{ width: `100%`, minHeight: `100%` }}
+			defaultSelectedKeys={[defaultKey]}
+			defaultOpenKeys={[menuContent[1].key,menuContent[2].key,menuContent[3].key]}
       mode="inline"
     >
       {menuContent.length &&
@@ -25,7 +27,6 @@ function Meun(props) {
 									</span>
 								}
 							>
-								{console.log(item)}
 								{/* 当有子集时继续遍历 */}
 								{item.children.length &&
 									item.children.map((val, k) => {
@@ -35,7 +36,7 @@ function Meun(props) {
 													key={val.key}
 													title={
 														<span>
-															<strong>{`${index + 1}.${k + 1}`}</strong>
+															<strong>{`${index + 1}.${k + 1} `}</strong>
 															<span>{val.title}</span>
 														</span>
 													}
@@ -43,16 +44,16 @@ function Meun(props) {
 													{val.children.length &&
 														val.children.map((m, n) => {
 															return (
-																<Menu.Item key={m.key}>{`${index + 1}.${k + 1}.${
+																<Menu.Item key={m.router}><Link to={m.router} key={m.key}>{`${index + 1}.${k + 1}.${
 																	n + 1
-																}  ${m.title}`}</Menu.Item>
+																}  ${m.title}`}</Link></Menu.Item>
 															)
 														})}
 												</Menu.ItemGroup>
 											)
 										}else{
 											return (
-												<Menu.Item key={val.key}>{`${index + 1}.${k + 1}  ${val.title}`}</Menu.Item>
+												<Menu.Item key={val.router}><Link to={val.router} key={val.key}>{`${index + 1}.${k + 1}  ${val.title}`}</Link></Menu.Item>
 											)
 										}
 									})}
@@ -60,7 +61,7 @@ function Meun(props) {
 						)
 					}else{
 						return (
-							<Menu.Item key={item.key}><Link to={item.router}><strong>{`${index + 1}.  ${item.title}`}</strong></Link></Menu.Item>
+							<Menu.Item key={item.router}><Link to={item.router} key={item.key}><strong>{`${index + 1}.  ${item.title}`}</strong></Link></Menu.Item>
 						)
 					}
           
